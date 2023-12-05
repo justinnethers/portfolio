@@ -20,7 +20,7 @@
             <li>
               <ul role="list" class="-mx-2 space-y-6">
                 <li v-for="item in navigation" :key="item.name">
-                  <NuxtLink :to="item.href" :class="[item.current ? 'active text-black dark:text-white font-bold' : 'text-gray-700 dark:text-white font-light', 'group flex gap-x-3 rounded-md p-2 text-4xl leading-6']">
+                  <NuxtLink :to="item.href" :class="[useRoute().path === item.href ? 'active text-black dark:text-white font-bold' : 'text-gray-700 dark:text-white font-light', 'group flex gap-x-3 rounded-md p-2 text-4xl leading-6']">
                     {{ item.name }}
                     <span class="inner"></span>
                   </NuxtLink>
@@ -34,8 +34,6 @@
 <!--                <span class="sr-only">Your profile</span>-->
 <!--                <span aria-hidden="true">Tom Cook</span>-->
 <!--              </a>-->
-              <a href="">X</a>
-              <a href="">LinkedIn</a>
             </li>
           </ul>
         </nav>
@@ -65,9 +63,10 @@
 <script setup>
 
 const navigation = [
-  { name: 'About', href: '/about', current: useRoute().name === 'about' },
-  { name: 'Projects', href: '/projects', current: useRoute().name === 'projects' },
-  { name: 'Blog', href: '/blog', current: useRoute().name === 'blog' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+  // { name: 'Projects', href: '/projects', current: useRoute().name === 'projects' },
+  // { name: 'Blog', href: '/blog', current: useRoute().name === 'blog' },
 ]
 
 </script>
